@@ -26,7 +26,7 @@ export function ClearSvg(svgCode: string, reactJSX?: boolean) {
     $("svg").removeAttr(key);
   }
 
-  return HtmlToJSX($.html(), reactJSX);
+  return HtmlToJSX($.html("svg"), reactJSX);
 }
 
 export function SvgToJSX(svg: string, name: string, snippet: boolean) {
