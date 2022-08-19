@@ -2,7 +2,7 @@ import { getIconSnippet } from "./utils";
 
 import got from "got";
 import { useState, useEffect } from "react";
-import { ActionPanel, Action, Grid, Icon, Color, showToast, Toast, Clipboard, showHUD } from "@raycast/api";
+import { ActionPanel, Action, Grid, Icon, Color, showToast, Toast, Clipboard, showHUD, closeMainWindow } from "@raycast/api";
 
 export default function Command() {
   const [copySelect, setCopySelect] = useState<string>("");
@@ -79,7 +79,6 @@ export default function Command() {
               <ActionPanel>
                 <Action
                   title="Copy to Clipboard"
-                  shortcut={{ modifiers: ["cmd"], key: "enter" }}
                   icon={Icon.Clipboard}
                   onAction={async () => {
                     const snippte = await getIconSnippet(icon, copySelect, true);
@@ -88,6 +87,19 @@ export default function Command() {
                       await showHUD("Copied to Clipboard 🎉");
                     } else {
                       await showHUD("Error copying to clipboard 😞");
+                    }
+                  }}
+                />
+                <Action
+                  title="Paste to Cursor"
+                  icon={Icon.TextCursor}
+                  onAction={async () => {
+                    const snippte = await getIconSnippet(icon, copySelect, false);
+                    if (snippte) {
+                      await Clipboard.paste(snippte);
+                      await closeMainWindow()
+                    } else {
+                      await showHUD("Error pasting to cursor 😞");
                     }
                   }}
                 />
