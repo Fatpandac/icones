@@ -2,8 +2,8 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "iconify",
   "title": "Iconify",
-  "description": "Search icon.",
-  "icon": "command-icon.png",
+  "description": "Search icon, power by Iconify.",
+  "icon": "icon.png",
   "author": "Fatpandac",
   "categories": [
     "Design Tools",
