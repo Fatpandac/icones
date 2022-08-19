@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "iconify",
-  "title": "Iconify",
+  "name": "icones",
+  "title": "Icones",
   "description": "Search icon, power by Iconify.",
   "icon": "icon.png",
   "author": "Fatpandac",
